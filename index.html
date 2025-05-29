@@ -179,6 +179,54 @@
                 transform: translateY(0);
             }
         }
+
+        /* Blog Section Styles */
+        #blog h2 {
+            text-align: center; /* Center the "Our Blog" title */
+            color: #0E2261; /* Match other section title colors if applicable, or use a suitable color */
+            margin-bottom: 30px; /* Space below the title */
+        }
+
+        .blog-summary-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for blog summaries */
+            gap: 20px; /* Space between blog summary items */
+            padding: 10px;
+        }
+
+        .blog-post-summary {
+            background: #ffffff; /* White background for each summary card */
+            border: 1px solid #e0e0e0; /* Light border */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+            transition: transform 0.3s, box-shadow 0.3s; /* Hover effect */
+        }
+
+        .blog-post-summary:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Stronger shadow on hover */
+        }
+
+        .blog-post-summary h3 {
+            font-family: 'Montserrat', sans-serif; /* Match other headings */
+            color: #007BFF; /* Color for blog post titles */
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 10px;
+        }
+
+        .blog-post-summary p {
+            font-size: 0.95rem; /* Slightly smaller text for excerpt */
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Ensure .cta-button style (already defined) applies well, or adjust if needed */
+        .blog-post-summary .cta-button {
+            display: inline-block;
+            padding: 8px 15px; /* Slightly smaller button for summaries if desired */
+            font-size: 0.9rem;
+        }
     </style>
     <script>
         // JavaScript for Navigation
@@ -213,6 +261,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -810,6 +859,21 @@
     }
 </style>
 
+<section id="blog">
+    <h2>Our Blog</h2>
+    <div class="blog-summary-container">
+        <div class="blog-post-summary">
+            <h3>Blog Post Title 1</h3>
+            <p>A short excerpt of the first blog post...</p>
+            <a href="blog/post1.html" class="cta-button">Read More</a>
+        </div>
+        <div class="blog-post-summary">
+            <h3>Blog Post Title 2</h3>
+            <p>A short excerpt of the second blog post...</p>
+            <a href="blog/post2.html" class="cta-button">Read More</a>
+        </div>
+    </div>
+</section>
 
 <section id="contact">
     <h2>Contact Us</h2>
