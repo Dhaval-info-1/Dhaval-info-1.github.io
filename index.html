@@ -83,151 +83,7 @@
     <meta name="robots" content="index, follow">
     <title>Agile methodologies</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        header {
-            background: #e0eafc; /* Pastel Blue */
-            color: #333;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #007BFF; /* Call-to-Action Color */
-        }
-
-        section {
-            margin: 40px auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 1200px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
-            display: none; /* Hidden by default for single-page effect */
-        }
-
-        section.active {
-            display: block;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .cta-button:hover {
-            background: #0056b3;
-        }
-
-        footer {
-            background: #e0eafc;
-            color: #333;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Blog Section Styles */
-        #blog h2 {
-            text-align: center; /* Center the "Our Blog" title */
-            color: #0E2261; /* Match other section title colors if applicable, or use a suitable color */
-            margin-bottom: 30px; /* Space below the title */
-        }
-
-        .blog-summary-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for blog summaries */
-            gap: 20px; /* Space between blog summary items */
-            padding: 10px;
-        }
-
-        .blog-post-summary {
-            background: #ffffff; /* White background for each summary card */
-            border: 1px solid #e0e0e0; /* Light border */
-            border-radius: 8px; /* Rounded corners */
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
-            transition: transform 0.3s, box-shadow 0.3s; /* Hover effect */
-        }
-
-        .blog-post-summary:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Stronger shadow on hover */
-        }
-
-        .blog-post-summary h3 {
-            font-family: 'Montserrat', sans-serif; /* Match other headings */
-            color: #007BFF; /* Color for blog post titles */
-            margin-top: 0; /* Remove default top margin */
-            margin-bottom: 10px;
-        }
-
-        .blog-post-summary p {
-            font-size: 0.95rem; /* Slightly smaller text for excerpt */
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        /* Ensure .cta-button style (already defined) applies well, or adjust if needed */
-        .blog-post-summary .cta-button {
-            display: inline-block;
-            padding: 8px 15px; /* Slightly smaller button for summaries if desired */
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
     <script>
         // JavaScript for Navigation
         document.addEventListener('DOMContentLoaded', () => {
@@ -243,12 +99,24 @@
                         section.classList.remove('active');
                     });
 
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active-link');
+                    });
+
                     document.getElementById(targetId).classList.add('active');
+                    e.target.classList.add('active-link'); // Add active-link to the clicked nav item
                 });
             });
 
-            // Show the Home section by default
-            document.getElementById('home').classList.add('active');
+            // Show the Home section and set its nav link to active by default
+            const homeSection = document.getElementById('home');
+            if (homeSection) {
+                homeSection.classList.add('active');
+                const homeLink = document.querySelector('nav ul li a[href="#home"]');
+                if (homeLink) {
+                    homeLink.classList.add('active-link');
+                }
+            }
         });
     </script>
 </head>
@@ -402,7 +270,9 @@
 </section>
 
    <section id="about">
-    <h2>About Me</h2>
+    <div class="section-title-wrapper">
+        <h2>About Me</h2>
+    </div>
     <p>
         Hello! I’m an enthusiastic professional specializing in <strong>Agile project management</strong>, <strong>software development</strong>, and <strong>AI-driven solutions</strong>. My journey has been one of continuous learning, growth, and commitment to delivering high-quality results. From humble beginnings to leading successful projects, my story is one of perseverance, innovation, and passion for technology.
     </p>
@@ -471,103 +341,119 @@
 
 
 <section id="services">
-    <h2>Our Services</h2>
+    <div class="section-title-wrapper">
+        <h2>Our Services</h2>
+    </div>
     <p>
         We specialize in delivering top-notch <strong>project management</strong>, <strong>software development</strong>, and <strong>AI-powered solutions</strong>, leveraging our expertise as <strong>certified Scrum Masters</strong> and <strong>PMP-certified professionals</strong>. With a proven track record of successful projects across various industries, we offer a range of services tailored to meet your business needs.
     </p>
-    
-    <h3>1. AI Product Development</h3>
-    <p>
-        Artificial Intelligence (AI) is revolutionizing industries, and we are here to help you stay ahead of the curve. Our <strong>AI product development</strong> services are designed to create innovative, intelligent solutions that transform your business operations and customer experiences. 
-    </p>
-    <p><strong>What We Offer:</strong></p>
-    <ul>
-        <li>End-to-end development of <strong>AI-powered applications</strong>, including chatbots, recommendation systems, and predictive analytics tools.</li>
-        <li>Integration of <strong>machine learning</strong> and <strong>deep learning algorithms</strong> to optimize workflows and decision-making.</li>
-        <li>Custom AI solutions tailored to your industry and business requirements.</li>
-        <li>Comprehensive training and support for your team to maximize the benefits of AI technologies.</li>
-    </ul>
-    <p>
-        Whether you're looking to enhance your existing products or build something entirely new, our expertise in AI development ensures that you achieve your goals efficiently and effectively.
-    </p>
-    
-    <h3>2. Agile Project Management</h3>
-    <p>
-        Effective project management is the cornerstone of successful software development. As certified <strong>Scrum Masters</strong> and experts in <strong>Agile methodologies</strong>, we provide comprehensive <strong>project management services</strong> that drive results.
-    </p>
-    <p><strong>Our Agile Project Management Services Include:</strong></p>
-    <ul>
-        <li><strong>Scrum Framework Implementation:</strong> Setting up and managing Scrum teams, facilitating sprints, and ensuring smooth project execution.</li>
-        <li><strong>Kanban Workflow Optimization:</strong> Streamlining processes to improve efficiency and reduce bottlenecks.</li>
-        <li><strong>Project Planning and Roadmap Creation:</strong> Developing detailed plans that align with your business goals and timelines.</li>
-        <li><strong>Risk Management and Mitigation:</strong> Identifying potential risks early and creating strategies to address them.</li>
-        <li><strong>Stakeholder Communication:</strong> Ensuring transparency and regular updates to all stakeholders.</li>
-    </ul>
-    <p>
-        Our approach emphasizes flexibility, collaboration, and continuous improvement, enabling teams to adapt to changing requirements and deliver high-quality results.
-    </p>
-    
-    <h3>3. Custom Software Solutions</h3>
-    <p>
-        In today’s competitive landscape, businesses need software that is as unique as their operations. We provide <strong>custom software development services</strong> tailored to meet your specific needs and objectives. 
-    </p>
-    <p><strong>Our Custom Software Solutions Cover:</strong></p>
-    <ul>
-        <li>Designing and developing <strong>enterprise applications</strong> that improve efficiency and productivity.</li>
-        <li>Building <strong>web and mobile applications</strong> with a focus on user experience and scalability.</li>
-        <li>Implementing <strong>cloud-based solutions</strong> for seamless accessibility and cost-effectiveness.</li>
-        <li>Creating <strong>API integrations</strong> to enhance system interoperability and functionality.</li>
-        <li>Providing ongoing maintenance and support to ensure optimal performance.</li>
-    </ul>
-    <p>
-        From initial concept to deployment, we work closely with you to deliver software that meets your requirements and exceeds your expectations.
-    </p>
-    
-    <h3>4. Technical Project Management</h3>
-    <p>
-        Our technical project management services ensure that your projects are delivered on time, within budget, and to the highest standards. With expertise in <strong>Agile methodologies</strong> and <strong>PMP-certified project management</strong>, we handle every aspect of the project lifecycle.
-    </p>
-    <p><strong>Key Services Include:</strong></p>
-    <ul>
-        <li>Defining project scope, goals, and deliverables in collaboration with stakeholders.</li>
-        <li>Creating detailed project schedules, budgets, and resource allocation plans.</li>
-        <li>Managing cross-functional teams and ensuring alignment with project objectives.</li>
-        <li>Tracking project progress using tools like <strong>Jira</strong>, <strong>Asana</strong>, and <strong>Trello</strong>.</li>
-        <li>Ensuring compliance with industry standards and best practices.</li>
-    </ul>
-    <p>
-        With a focus on delivering value at every stage, we help you achieve successful outcomes while minimizing risks and challenges.
-    </p>
 
-    <h3>5. Agile Coaching and Training</h3>
-    <p>
-        Transitioning to Agile methodologies can be challenging, but we make it seamless with our expert coaching and training services. Our goal is to empower your teams to embrace Agile principles and achieve peak performance.
-    </p>
-    <p><strong>Our Agile Coaching Services Include:</strong></p>
-    <ul>
-        <li>Workshops on <strong>Scrum practices</strong>, <strong>Kanban workflows</strong>, and other Agile frameworks.</li>
-        <li>Onboarding support for new teams adopting Agile.</li>
-        <li>Custom training programs tailored to your organization’s needs.</li>
-        <li>Guidance on creating a culture of continuous improvement and collaboration.</li>
-    </ul>
-    <p>
-        With hands-on coaching and actionable insights, we help your teams unlock their full potential and deliver exceptional results.
-    </p>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>1. AI Product Development</h3>
+            <p>
+                Artificial Intelligence (AI) is revolutionizing industries, and we are here to help you stay ahead of the curve. Our <strong>AI product development</strong> services are designed to create innovative, intelligent solutions that transform your business operations and customer experiences.
+            </p>
+            <p><strong>What We Offer:</strong></p>
+            <ul>
+                <li>End-to-end development of <strong>AI-powered applications</strong>, including chatbots, recommendation systems, and predictive analytics tools.</li>
+                <li>Integration of <strong>machine learning</strong> and <strong>deep learning algorithms</strong> to optimize workflows and decision-making.</li>
+                <li>Custom AI solutions tailored to your industry and business requirements.</li>
+                <li>Comprehensive training and support for your team to maximize the benefits of AI technologies.</li>
+            </ul>
+            <p>
+                Whether you're looking to enhance your existing products or build something entirely new, our expertise in AI development ensures that you achieve your goals efficiently and effectively.
+            </p>
+        </div>
 
-    <h3>6. AI Integration in Project Management</h3>
-    <p>
-        As technology evolves, integrating AI into project management processes can revolutionize how teams operate. We offer services that leverage AI to enhance efficiency, predict project outcomes, and drive smarter decision-making.
-    </p>
-    <p><strong>AI Integration Services Include:</strong></p>
-    <ul>
-        <li>Implementing AI tools for <strong>predictive analytics</strong> and risk assessment.</li>
-        <li>Streamlining workflows with <strong>AI-powered task management</strong>.</li>
-        <li>Developing custom solutions for <strong>automated reporting</strong> and real-time insights.</li>
-        <li>Integrating AI with existing project management tools like Jira and Trello.</li>
-    </ul>
-    <p>
-        By combining our expertise in AI and project management, we help you stay ahead in an increasingly competitive environment.
-    </p>
+        <div class="service-card">
+            <h3>2. Agile Project Management</h3>
+            <p>
+                Effective project management is the cornerstone of successful software development. As certified <strong>Scrum Masters</strong> and experts in <strong>Agile methodologies</strong>, we provide comprehensive <strong>project management services</strong> that drive results.
+            </p>
+            <p><strong>Our Agile Project Management Services Include:</strong></p>
+            <ul>
+                <li><strong>Scrum Framework Implementation:</strong> Setting up and managing Scrum teams, facilitating sprints, and ensuring smooth project execution.</li>
+                <li><strong>Kanban Workflow Optimization:</strong> Streamlining processes to improve efficiency and reduce bottlenecks.</li>
+                <li><strong>Project Planning and Roadmap Creation:</strong> Developing detailed plans that align with your business goals and timelines.</li>
+                <li><strong>Risk Management and Mitigation:</strong> Identifying potential risks early and creating strategies to address them.</li>
+                <li><strong>Stakeholder Communication:</strong> Ensuring transparency and regular updates to all stakeholders.</li>
+            </ul>
+            <p>
+                Our approach emphasizes flexibility, collaboration, and continuous improvement, enabling teams to adapt to changing requirements and deliver high-quality results.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>3. Custom Software Solutions</h3>
+            <p>
+                In today’s competitive landscape, businesses need software that is as unique as their operations. We provide <strong>custom software development services</strong> tailored to meet your specific needs and objectives.
+            </p>
+            <p><strong>Our Custom Software Solutions Cover:</strong></p>
+            <ul>
+                <li>Designing and developing <strong>enterprise applications</strong> that improve efficiency and productivity.</li>
+                <li>Building <strong>web and mobile applications</strong> with a focus on user experience and scalability.</li>
+                <li>Implementing <strong>cloud-based solutions</strong> for seamless accessibility and cost-effectiveness.</li>
+                <li>Creating <strong>API integrations</strong> to enhance system interoperability and functionality.</li>
+                <li>Providing ongoing maintenance and support to ensure optimal performance.</li>
+            </ul>
+            <p>
+                From initial concept to deployment, we work closely with you to deliver software that meets your requirements and exceeds your expectations.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>4. Technical Project Management</h3>
+            <p>
+                Our technical project management services ensure that your projects are delivered on time, within budget, and to the highest standards. With expertise in <strong>Agile methodologies</strong> and <strong>PMP-certified project management</strong>, we handle every aspect of the project lifecycle.
+            </p>
+            <p><strong>Key Services Include:</strong></p>
+            <ul>
+                <li>Defining project scope, goals, and deliverables in collaboration with stakeholders.</li>
+                <li>Creating detailed project schedules, budgets, and resource allocation plans.</li>
+                <li>Managing cross-functional teams and ensuring alignment with project objectives.</li>
+                <li>Tracking project progress using tools like <strong>Jira</strong>, <strong>Asana</strong>, and <strong>Trello</strong>.</li>
+                <li>Ensuring compliance with industry standards and best practices.</li>
+            </ul>
+            <p>
+                With a focus on delivering value at every stage, we help you achieve successful outcomes while minimizing risks and challenges.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>5. Agile Coaching and Training</h3>
+            <p>
+                Transitioning to Agile methodologies can be challenging, but we make it seamless with our expert coaching and training services. Our goal is to empower your teams to embrace Agile principles and achieve peak performance.
+            </p>
+            <p><strong>Our Agile Coaching Services Include:</strong></p>
+            <ul>
+                <li>Workshops on <strong>Scrum practices</strong>, <strong>Kanban workflows</strong>, and other Agile frameworks.</li>
+                <li>Onboarding support for new teams adopting Agile.</li>
+                <li>Custom training programs tailored to your organization’s needs.</li>
+                <li>Guidance on creating a culture of continuous improvement and collaboration.</li>
+            </ul>
+            <p>
+                With hands-on coaching and actionable insights, we help your teams unlock their full potential and deliver exceptional results.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>6. AI Integration in Project Management</h3>
+            <p>
+                As technology evolves, integrating AI into project management processes can revolutionize how teams operate. We offer services that leverage AI to enhance efficiency, predict project outcomes, and drive smarter decision-making.
+            </p>
+            <p><strong>AI Integration Services Include:</strong></p>
+            <ul>
+                <li>Implementing AI tools for <strong>predictive analytics</strong> and risk assessment.</li>
+                <li>Streamlining workflows with <strong>AI-powered task management</strong>.</li>
+                <li>Developing custom solutions for <strong>automated reporting</strong> and real-time insights.</li>
+                <li>Integrating AI with existing project management tools like Jira and Trello.</li>
+            </ul>
+            <p>
+                By combining our expertise in AI and project management, we help you stay ahead in an increasingly competitive environment.
+            </p>
+        </div>
+    </div>
     
     <h3>Why Choose Us?</h3>
     <p>
@@ -580,159 +466,137 @@
 
 
  <section id="portfolio">
-    <h2>Portfolio</h2>
+    <div class="section-title-wrapper">
+        <h2>Portfolio</h2>
+    </div>
     <p>
         Explore our portfolio of diverse projects that showcase expertise in <strong>Agile project management</strong>, <strong>AI product development</strong>, and <strong>custom software solutions</strong>. Each project reflects a commitment to innovation, technical excellence, and successful client collaboration. Whether you're looking for <strong>AI-driven applications</strong>, <strong>e-commerce platforms</strong>, or <strong>enterprise software</strong>, we've got the experience to deliver results.
     </p>
 
-    <h3>Recent Projects</h3>
-    <ul>
-        <li><strong>AI Customer Support Assistant</strong></li>
-        <li><strong>Fitness Tracking App</strong></li>
-        <li><strong>Cybersecurity Vulnerability Assessment</strong></li>
-        <li><strong>E-Commerce Analytics Dashboard</strong></li>
-        <li><strong>Healthcare Management System</strong></li>
-        <li><strong>Learning Management Platform</strong></li>
-        <li><strong>Real-Time Inventory Tracker</strong></li>
-    </ul>
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <h3>AI Customer Support Assistant</h3>
+            <p>
+                Delivered a scalable <strong>AI-powered chatbot</strong> to improve customer service for a mid-sized SaaS company. The project leveraged <strong>natural language processing (NLP)</strong> and machine learning to provide instant and accurate responses to user queries.
+            </p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Multi-channel integration with web, mobile, and email platforms.</li>
+                <li>Real-time sentiment analysis to tailor responses.</li>
+                <li>Self-learning algorithms for continuous improvement.</li>
+                <li>Scalable architecture built on <strong>Google Cloud Platform</strong>.</li>
+            </ul>
+            <p>Tools Used: <strong>Python, TensorFlow, Dialogflow, Firebase</strong>.</p>
+            <p>Managed using <strong>Scrum methodology</strong>, with two-week sprints and regular client demos to align with goals.</p>
+        </div>
 
-    <h3>Project Highlights</h3>
+        <div class="portfolio-card">
+            <h3>Fitness Tracking App</h3>
+            <p>
+                Developed a cross-platform <strong>mobile application</strong> that enables users to track workouts, monitor calorie intake, and set fitness goals. The app is user-friendly and packed with personalized recommendations.
+            </p>
+            <p><strong>Core Features:</strong></p>
+            <ul>
+                <li>Integration with wearables like Fitbit and Apple Watch.</li>
+                <li>Custom dashboards for progress tracking.</li>
+                <li>Push notifications for reminders and challenges.</li>
+                <li>Social sharing options to engage the community.</li>
+            </ul>
+            <p>Tools Used: <strong>React Native, Node.js, MongoDB</strong>.</p>
+            <p>The project was managed using <strong>Kanban methodology</strong>, focusing on continuous delivery and quality control.</p>
+        </div>
 
-    <h4>1. AI Customer Support Assistant</h4>
-    <p>
-        Delivered a scalable <strong>AI-powered chatbot</strong> to improve customer service for a mid-sized SaaS company. The project leveraged <strong>natural language processing (NLP)</strong> and machine learning to provide instant and accurate responses to user queries.
-    </p>
-    <p><strong>Key Features:</strong></p>
-    <ul>
-        <li>Multi-channel integration with web, mobile, and email platforms.</li>
-        <li>Real-time sentiment analysis to tailor responses.</li>
-        <li>Self-learning algorithms for continuous improvement.</li>
-        <li>Scalable architecture built on <strong>Google Cloud Platform</strong>.</li>
-    </ul>
-    <p>
-        Tools Used: <strong>Python, TensorFlow, Dialogflow, Firebase</strong>.
-    </p>
-    <p>
-        Managed using <strong>Scrum methodology</strong>, with two-week sprints and regular client demos to align with goals.
-    </p>
+        <div class="portfolio-card">
+            <h3>Cybersecurity Vulnerability Assessment</h3>
+            <p>
+                Conducted a comprehensive <strong>penetration testing</strong> and vulnerability assessment for a fintech company to identify security gaps and ensure compliance with industry standards.
+            </p>
+            <p><strong>Services Provided:</strong></p>
+            <ul>
+                <li>Evaluation of application security, APIs, and network infrastructure.</li>
+                <li>Detailed report with actionable recommendations.</li>
+                <li>Post-assessment training for internal teams.</li>
+                <li>Ensured compliance with <strong>ISO 27001</strong> standards.</li>
+            </ul>
+            <p>Tools Used: <strong>Kali Linux, OWASP ZAP, Metasploit</strong>.</p>
+            <p>Adopted <strong>Agile principles</strong> to prioritize security issues based on severity and implement fixes effectively.</p>
+        </div>
 
-    <h4>2. Fitness Tracking App</h4>
-    <p>
-        Developed a cross-platform <strong>mobile application</strong> that enables users to track workouts, monitor calorie intake, and set fitness goals. The app is user-friendly and packed with personalized recommendations.
-    </p>
-    <p><strong>Core Features:</strong></p>
-    <ul>
-        <li>Integration with wearables like Fitbit and Apple Watch.</li>
-        <li>Custom dashboards for progress tracking.</li>
-        <li>Push notifications for reminders and challenges.</li>
-        <li>Social sharing options to engage the community.</li>
-    </ul>
-    <p>
-        Tools Used: <strong>React Native, Node.js, MongoDB</strong>.
-    </p>
-    <p>
-        The project was managed using <strong>Kanban methodology</strong>, focusing on continuous delivery and quality control.
-    </p>
+        <div class="portfolio-card">
+            <h3>E-Commerce Analytics Dashboard</h3>
+            <p>
+                Built a dynamic <strong>analytics dashboard</strong> for an e-commerce platform to provide actionable insights on sales trends, customer behavior, and inventory levels.
+            </p>
+            <p><strong>Key Deliverables:</strong></p>
+            <ul>
+                <li>Data visualization using charts and graphs.</li>
+                <li>Custom reporting tools with export options.</li>
+                <li>Real-time inventory alerts.</li>
+                <li>Integration with multiple data sources, including Google Analytics.</li>
+            </ul>
+            <p>Tools Used: <strong>Angular, Node.js, MySQL, Power BI</strong>.</p>
+            <p>Managed using <strong>Agile project management techniques</strong>, with sprint retrospectives to identify and resolve roadblocks.</p>
+        </div>
 
-    <h4>3. Cybersecurity Vulnerability Assessment</h4>
-    <p>
-        Conducted a comprehensive <strong>penetration testing</strong> and vulnerability assessment for a fintech company to identify security gaps and ensure compliance with industry standards.
-    </p>
-    <p><strong>Services Provided:</strong></p>
-    <ul>
-        <li>Evaluation of application security, APIs, and network infrastructure.</li>
-        <li>Detailed report with actionable recommendations.</li>
-        <li>Post-assessment training for internal teams.</li>
-        <li>Ensured compliance with <strong>ISO 27001</strong> standards.</li>
-    </ul>
-    <p>
-        Tools Used: <strong>Kali Linux, OWASP ZAP, Metasploit</strong>.
-    </p>
-    <p>
-        Adopted <strong>Agile principles</strong> to prioritize security issues based on severity and implement fixes effectively.
-    </p>
+        <div class="portfolio-card">
+            <h3>Healthcare Management System</h3>
+            <p>
+                Delivered a comprehensive <strong>healthcare management system</strong> for a clinic, enabling efficient scheduling, patient record management, and billing processes.
+            </p>
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>Appointment scheduling with automated reminders.</li>
+                <li>Secure storage and retrieval of patient records.</li>
+                <li>Integrated billing system with online payment options.</li>
+                <li>HIPAA-compliant data protection measures.</li>
+            </ul>
+            <p>Tools Used: <strong>PHP, Laravel, PostgreSQL, AWS</strong>.</p>
+            <p>Used <strong>Scrum framework</strong> to maintain transparency and adaptability throughout the project lifecycle.</p>
+        </div>
 
-    <h4>4. E-Commerce Analytics Dashboard</h4>
-    <p>
-        Built a dynamic <strong>analytics dashboard</strong> for an e-commerce platform to provide actionable insights on sales trends, customer behavior, and inventory levels.
-    </p>
-    <p><strong>Key Deliverables:</strong></p>
-    <ul>
-        <li>Data visualization using charts and graphs.</li>
-        <li>Custom reporting tools with export options.</li>
-        <li>Real-time inventory alerts.</li>
-        <li>Integration with multiple data sources, including Google Analytics.</li>
-    </ul>
-    <p>
-        Tools Used: <strong>Angular, Node.js, MySQL, Power BI</strong>.
-    </p>
-    <p>
-        Managed using <strong>Agile project management techniques</strong>, with sprint retrospectives to identify and resolve roadblocks.
-    </p>
+        <div class="portfolio-card">
+            <h3>Learning Management Platform</h3>
+            <p>
+                Created an intuitive <strong>learning management system (LMS)</strong> to help a training institute deliver courses online. The platform supports course management, progress tracking, and assessments.
+            </p>
+            <p><strong>Key Capabilities:</strong></p>
+            <ul>
+                <li>Interactive video lectures with quizzes.</li>
+                <li>Progress tracking and certification generation.</li>
+                <li>Admin dashboard for managing courses and students.</li>
+                <li>Mobile-responsive design for accessibility.</li>
+            </ul>
+            <p>Tools Used: <strong>React.js, Django, PostgreSQL</strong>.</p>
+            <p>Managed the project using <strong>Scrum methodology</strong>, focusing on continuous feedback from instructors and students.</p>
+        </div>
 
-    <h4>5. Healthcare Management System</h4>
-    <p>
-        Delivered a comprehensive <strong>healthcare management system</strong> for a clinic, enabling efficient scheduling, patient record management, and billing processes.
-    </p>
-    <p><strong>Features:</strong></p>
-    <ul>
-        <li>Appointment scheduling with automated reminders.</li>
-        <li>Secure storage and retrieval of patient records.</li>
-        <li>Integrated billing system with online payment options.</li>
-        <li>HIPAA-compliant data protection measures.</li>
-    </ul>
-    <p>
-        Tools Used: <strong>PHP, Laravel, PostgreSQL, AWS</strong>.
-    </p>
-    <p>
-        Used <strong>Scrum framework</strong> to maintain transparency and adaptability throughout the project lifecycle.
-    </p>
+        <div class="portfolio-card">
+            <h3>Real-Time Inventory Tracker</h3>
+            <p>
+                Built a robust <strong>inventory tracking system</strong> for a logistics company, allowing real-time monitoring of stock levels and supply chain efficiency.
+            </p>
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>Barcode and RFID integration for tracking.</li>
+                <li>Real-time updates on stock levels and locations.</li>
+                <li>Customizable reports and analytics dashboards.</li>
+                <li>Integration with existing ERP systems.</li>
+            </ul>
+            <p>Tools Used: <strong>Java, Spring Boot, MongoDB, RabbitMQ</strong>.</p>
+            <p>Used <strong>Kanban framework</strong> for flexibility in handling changing requirements.</p>
+        </div>
+    </div>
 
-    <h4>6. Learning Management Platform</h4>
-    <p>
-        Created an intuitive <strong>learning management system (LMS)</strong> to help a training institute deliver courses online. The platform supports course management, progress tracking, and assessments.
-    </p>
-    <p><strong>Key Capabilities:</strong></p>
-    <ul>
-        <li>Interactive video lectures with quizzes.</li>
-        <li>Progress tracking and certification generation.</li>
-        <li>Admin dashboard for managing courses and students.</li>
-        <li>Mobile-responsive design for accessibility.</li>
-    </ul>
-    <p>
-        Tools Used: <strong>React.js, Django, PostgreSQL</strong>.
-    </p>
-    <p>
-        Managed the project using <strong>Scrum methodology</strong>, focusing on continuous feedback from instructors and students.
-    </p>
-
-    <h4>7. Real-Time Inventory Tracker</h4>
-    <p>
-        Built a robust <strong>inventory tracking system</strong> for a logistics company, allowing real-time monitoring of stock levels and supply chain efficiency.
-    </p>
-    <p><strong>Features:</strong></p>
-    <ul>
-        <li>Barcode and RFID integration for tracking.</li>
-        <li>Real-time updates on stock levels and locations.</li>
-        <li>Customizable reports and analytics dashboards.</li>
-        <li>Integration with existing ERP systems.</li>
-    </ul>
-    <p>
-        Tools Used: <strong>Java, Spring Boot, MongoDB, RabbitMQ</strong>.
-    </p>
-    <p>
-        Used <strong>Kanban framework</strong> for flexibility in handling changing requirements.
-    </p>
-
-    <h3>Why Work With Us?</h3>
-    <p>
+    <p> <!-- This is the "Why Work With Us?" paragraph, moved outside the grid -->
         With a proven track record in <strong>Agile project management</strong>, <strong>AI product development</strong>, and <strong>software engineering</strong>, we deliver tailored solutions that exceed client expectations. <a href="mailto:dhaval2123mba@gmail.com">Contact us</a> today to bring your project to life.
     </p>
 </section>
 
 
 <section id="testimonials">
-    <h2>What Our Clients Say</h2>
+    <div class="section-title-wrapper">
+        <h2>What Our Clients Say</h2>
+    </div>
     <p>Here’s what our satisfied clients have to say about our services:</p>
 
     <div class="testimonial-grid">
@@ -808,59 +672,12 @@
     </div>
 </section>
 
-<!-- CSS for Styling and Hover Animation -->
-<style>
-    #testimonials {
-        padding: 20px;
-        background-color: #f9f9f9;
-    }
-
-    #testimonials h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-    }
-
-    .testimonial-card {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .testimonial-card blockquote {
-        font-style: italic;
-        color: #555;
-        margin-bottom: 10px;
-    }
-
-    .testimonial-card p {
-        font-weight: bold;
-        color: #333;
-    }
-
-    .rating {
-        font-size: 14px;
-        color: #ff9900;
-        margin-top: 5px;
-    }
-</style>
+<!-- CSS for Styling and Hover Animation is now in css/style.css -->
 
 <section id="blog">
-    <h2>Our Blog</h2>
+    <div class="section-title-wrapper">
+        <h2>Our Blog</h2>
+    </div>
     <div class="blog-summary-container">
         <div class="blog-post-summary">
             <h3>Blog Post Title 1</h3>
@@ -876,7 +693,9 @@
 </section>
 
 <section id="contact">
-    <h2>Contact Us</h2>
+    <div class="section-title-wrapper">
+        <h2>Contact Us</h2>
+    </div>
     <p>Feel free to reach out for collaborations, inquiries, or consultations on Agile project management and software development services.</p>
 
     <div class="contact-form-container">
@@ -897,93 +716,7 @@
         </form>
     </div>
 
-    <style>
-        /* General Section Styling */
-        #contact {
-            background: #f9f9f9; /* Light grey background for contrast */
-            padding: 60px 20px;
-            text-align: center;
-            font-family: 'Arial', sans-serif; /* Use consistent font */
-        }
-
-        #contact h2 {
-            color: #0E2261; /* Primary color */
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        #contact p {
-            color: #333;
-            font-size: 1rem;
-            margin-bottom: 40px;
-        }
-
-        /* Contact Form Container */
-        .contact-form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white; /* White card background */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
-        }
-
-        .contact-form-container:hover {
-            transform: translateY(-5px); /* Lift the card slightly on hover */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-        }
-
-        /* Form Group Styling */
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            font-weight: bold;
-            color: #0E2261;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: #0FB12F; /* Accent color for focus */
-            outline: none;
-            box-shadow: 0 0 5px rgba(15, 177, 47, 0.3);
-        }
-
-        /* CTA Button Styling */
-        .cta-button {
-            background: #0FB12F;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: #0c9b27; /* Slightly darker green on hover */
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .contact-form-container {
-                padding: 15px;
-            }
-        }
-    </style>
+    <!-- Contact form styles are now in css/style.css -->
 </section>
 
 
