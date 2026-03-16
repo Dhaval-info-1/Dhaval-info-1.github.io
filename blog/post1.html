@@ -1,24 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post Title 1 - My Awesome Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Roboto', sans-serif; margin: 20px; padding: 0; background-color: #f8f9fa; color: #333; }
-        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #0E2261; }
-        .back-link { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5px; }
-        .back-link:hover { background-color: #0056b3; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Agile Methodologies: A Practical Guide | Dhaval Trivedi</title>
+  <meta name="description" content="A practical guide to Agile methodologies — core values, the 12 principles, Scrum vs Kanban, and how to get started. By Dhaval Trivedi, PMP &amp; CSM certified.">
+  <meta name="author" content="Dhaval Trivedi">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dhaval-info-1.github.io/blog/post1.html">
+  <meta property="og:title" content="Understanding Agile Methodologies: A Practical Guide | Dhaval Trivedi">
+  <meta property="og:description" content="A practical guide to Agile methodologies — core values, 12 principles, Scrum vs Kanban, and getting started.">
+  <meta property="og:url" content="https://dhaval-info-1.github.io/blog/post1.html">
+  <meta property="og:type" content="article">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Understanding Agile Methodologies: A Practical Guide",
+    "description": "A practical guide to Agile methodologies — core values, the 12 principles, Scrum vs Kanban, and how to get started.",
+    "author": { "@type": "Person", "name": "Dhaval Trivedi", "url": "https://dhaval-info-1.github.io/" },
+    "publisher": { "@type": "Person", "name": "Dhaval Trivedi" },
+    "url": "https://dhaval-info-1.github.io/blog/post1.html",
+    "datePublished": "2025-05-29",
+    "dateModified": "2026-03-16"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0E2261; --blue:#1A56DB; --bg:#F5F7FA; --border:#E2E8F0; --text:#1A202C; --muted:#64748B; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); }
+    .top-bar { background: var(--navy); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .top-bar .logo { font-size: 1.1rem; font-weight: 800; color: white; text-decoration: none; }
+    .top-bar .logo span { color: #93C5FD; }
+    .back-link { font-size: 0.875rem; font-weight: 600; color: #94A3B8; text-decoration: none; }
+    .back-link:hover { color: white; }
+    .article-wrap { max-width: 760px; margin: 48px auto; padding: 0 24px 64px; }
+    .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .article-category { background: #EEF2FF; color: var(--navy); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+    .article-date { font-size: 0.83rem; color: var(--muted); }
+    h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--navy); line-height: 1.3; margin-bottom: 20px; }
+    .article-lead { font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin-bottom: 36px; padding-bottom: 32px; border-bottom: 2px solid var(--border); }
+    h2 { font-size: 1.35rem; font-weight: 700; color: var(--navy); margin: 36px 0 14px; }
+    h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
+    p { color: var(--muted); margin-bottom: 16px; line-height: 1.8; }
+    ul, ol { padding-left: 22px; margin-bottom: 16px; color: var(--muted); }
+    li { margin-bottom: 6px; line-height: 1.7; }
+    strong { color: var(--text); }
+    .callout { background: #EEF2FF; border-left: 4px solid var(--navy); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+    .callout p { margin: 0; color: var(--navy); font-weight: 500; }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 40px; padding: 12px 24px; background: var(--navy); color: white; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; }
+    .back-btn:hover { background: var(--blue); }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Understanding Agile Methodologies</h1>
-        <p>This is the first blog post. Agile methodologies are a set of practices that promote continuous iteration of development and testing throughout the software development lifecycle of the project. Agile development, unlike the waterfall model, is iterative and incremental.</p>
-        <p>Key principles of Agile include customer satisfaction, welcoming change, delivering working software frequently, collaboration between business people and developers, and more.</p>
-        <a href="../#blog" class="back-link">Back to Blog</a>
+  <div class="top-bar">
+    <a href="../" class="logo">Dhaval <span>Trivedi</span></a>
+    <a href="../" class="back-link">&#8592; Back to Site</a>
+  </div>
+  <article class="article-wrap" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-meta">
+      <span class="article-category">Agile</span>
+      <span class="article-date">May 29, 2025 &bull; By <strong>Dhaval Trivedi</strong></span>
     </div>
+    <h1 itemprop="headline">Understanding Agile Methodologies: A Practical Guide</h1>
+    <p class="article-lead" itemprop="description">
+      Agile methodologies are a set of practices that promote continuous iteration of development and testing throughout the software development lifecycle.
+      Unlike the waterfall model, Agile is iterative, incremental, and built around delivering value to customers quickly and reliably.
+    </p>
+    <h2>What Is Agile?</h2>
+    <p>
+      Agile is a philosophy, not a single rigid process. It was formalized in 2001 with the publication of the <strong>Agile Manifesto</strong>, defining four core values and twelve guiding principles for better software development.
+    </p>
+    <p>At its core, Agile prioritizes:</p>
+    <ul>
+      <li><strong>Individuals and interactions</strong> over processes and tools</li>
+      <li><strong>Working software</strong> over comprehensive documentation</li>
+      <li><strong>Customer collaboration</strong> over contract negotiation</li>
+      <li><strong>Responding to change</strong> over following a fixed plan</li>
+    </ul>
+    <div class="callout">
+      <p>Agile does not mean "no planning." It means planning in shorter cycles and adapting as you learn more about the problem and the solution.</p>
+    </div>
+    <h2>The 12 Agile Principles</h2>
+    <ol>
+      <li>Satisfy the customer through early and continuous delivery of valuable software.</li>
+      <li>Welcome changing requirements, even late in development.</li>
+      <li>Deliver working software frequently — from weeks to months, the shorter the better.</li>
+      <li>Business people and developers must work together daily throughout the project.</li>
+      <li>Build projects around motivated individuals. Give them environment and support, and trust them.</li>
+      <li>The most efficient method of conveying information is face-to-face conversation.</li>
+      <li>Working software is the primary measure of progress.</li>
+      <li>Agile processes promote sustainable development at a constant, maintainable pace.</li>
+      <li>Continuous attention to technical excellence and good design enhances agility.</li>
+      <li>Simplicity — maximizing the work not done — is essential.</li>
+      <li>The best architectures, requirements, and designs emerge from self-organizing teams.</li>
+      <li>At regular intervals, the team reflects on how to become more effective and adjusts accordingly.</li>
+    </ol>
+    <h2>Agile Frameworks: Scrum vs Kanban</h2>
+    <h3>Scrum</h3>
+    <p>
+      Scrum organizes work into <strong>sprints</strong> — fixed time-boxes of 1–4 weeks. Key roles: Product Owner (prioritizes the backlog), Scrum Master (removes impediments), and Development Team (builds the product).
+      Core ceremonies: Sprint Planning, Daily Standup, Sprint Review, and Retrospective.
+    </p>
+    <h3>Kanban</h3>
+    <p>
+      Kanban is a continuous flow system. Work items are visualized on a board, and the core constraint is limiting <strong>WIP (Work In Progress)</strong> to eliminate bottlenecks and improve throughput.
+      Best for support, operations, and maintenance teams where work arrives continuously.
+    </p>
+    <h2>When to Use Agile</h2>
+    <ul>
+      <li>Requirements are likely to evolve during the project</li>
+      <li>You need to deliver value to customers quickly and iteratively</li>
+      <li>The team is small (5–12 people) and can collaborate closely</li>
+      <li>The project involves building or improving a software product</li>
+    </ul>
+    <div class="callout">
+      <p>Need help adopting Agile in your organization? <a href="mailto:dhaval2123mba@gmail.com" style="color:#0E2261;font-weight:700;">Contact Dhaval Trivedi</a> for tailored Agile coaching and training.</p>
+    </div>
+    <a href="../" class="back-btn">&#8592; Back to Dhaval Trivedi's Site</a>
+  </article>
 </body>
 </html>

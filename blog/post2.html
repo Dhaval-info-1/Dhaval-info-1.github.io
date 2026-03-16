@@ -1,24 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post Title 2 - My Awesome Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Roboto', sans-serif; margin: 20px; padding: 0; background-color: #f8f9fa; color: #333; }
-        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #0E2261; }
-        .back-link { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5px; }
-        .back-link:hover { background-color: #0056b3; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rise of AI in Project Management | Dhaval Trivedi</title>
+  <meta name="description" content="How AI is transforming project management — from predictive risk analytics to automated sprint planning. Practical insights by Dhaval Trivedi, PMP &amp; AI Solutions Expert.">
+  <meta name="author" content="Dhaval Trivedi">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dhaval-info-1.github.io/blog/post2.html">
+  <meta property="og:title" content="The Rise of AI in Project Management | Dhaval Trivedi">
+  <meta property="og:description" content="How AI is transforming project management — from predictive risk analytics to automated sprint planning.">
+  <meta property="og:url" content="https://dhaval-info-1.github.io/blog/post2.html">
+  <meta property="og:type" content="article">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Rise of AI in Project Management",
+    "description": "How AI is transforming project management — from predictive risk analytics to automated sprint planning. Practical insights by Dhaval Trivedi.",
+    "author": { "@type": "Person", "name": "Dhaval Trivedi", "url": "https://dhaval-info-1.github.io/" },
+    "publisher": { "@type": "Person", "name": "Dhaval Trivedi" },
+    "url": "https://dhaval-info-1.github.io/blog/post2.html",
+    "datePublished": "2025-05-29",
+    "dateModified": "2026-03-16"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0E2261; --blue:#1A56DB; --bg:#F5F7FA; --border:#E2E8F0; --text:#1A202C; --muted:#64748B; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); }
+    .top-bar { background: var(--navy); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .top-bar .logo { font-size: 1.1rem; font-weight: 800; color: white; text-decoration: none; }
+    .top-bar .logo span { color: #93C5FD; }
+    .back-link { font-size: 0.875rem; font-weight: 600; color: #94A3B8; text-decoration: none; }
+    .back-link:hover { color: white; }
+    .article-wrap { max-width: 760px; margin: 48px auto; padding: 0 24px 64px; }
+    .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .article-category { background: #EEF2FF; color: var(--navy); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+    .article-date { font-size: 0.83rem; color: var(--muted); }
+    h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--navy); line-height: 1.3; margin-bottom: 20px; }
+    .article-lead { font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin-bottom: 36px; padding-bottom: 32px; border-bottom: 2px solid var(--border); }
+    h2 { font-size: 1.35rem; font-weight: 700; color: var(--navy); margin: 36px 0 14px; }
+    h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
+    p { color: var(--muted); margin-bottom: 16px; line-height: 1.8; }
+    ul, ol { padding-left: 22px; margin-bottom: 16px; color: var(--muted); }
+    li { margin-bottom: 6px; line-height: 1.7; }
+    strong { color: var(--text); }
+    .callout { background: #EEF2FF; border-left: 4px solid var(--navy); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+    .callout p { margin: 0; color: var(--navy); font-weight: 500; }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 40px; padding: 12px 24px; background: var(--navy); color: white; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; }
+    .back-btn:hover { background: var(--blue); }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>The Rise of AI in Project Management</h1>
-        <p>This is the second blog post. Artificial Intelligence (AI) is increasingly being integrated into project management tools and practices. This integration promises to automate tasks, provide better insights, and improve decision-making.</p>
-        <p>AI can help in areas like resource allocation, risk prediction, progress tracking, and even in optimizing team communication. As AI technology matures, its role in managing complex projects will only grow.</p>
-        <a href="../#blog" class="back-link">Back to Blog</a>
+  <div class="top-bar">
+    <a href="../" class="logo">Dhaval <span>Trivedi</span></a>
+    <a href="../" class="back-link">&#8592; Back to Site</a>
+  </div>
+  <article class="article-wrap" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-meta">
+      <span class="article-category">AI &amp; Project Management</span>
+      <span class="article-date">May 29, 2025 &bull; By <strong>Dhaval Trivedi</strong></span>
     </div>
+    <h1 itemprop="headline">The Rise of AI in Project Management</h1>
+    <p class="article-lead" itemprop="description">
+      Artificial Intelligence is fundamentally changing how project managers plan, execute, and report on projects.
+      From predicting delays before they happen to automating repetitive reporting tasks, AI is becoming an indispensable tool in the modern project manager's toolkit.
+    </p>
+    <h2>Why AI Matters for Project Management</h2>
+    <p>
+      Traditional project management relies heavily on human judgment, manual data entry, and reactive decision-making. AI flips this model — enabling <strong>proactive, data-driven decisions</strong> at every stage of the project lifecycle.
+    </p>
+    <p>
+      The result: fewer surprises, better resource utilization, and more predictable delivery outcomes.
+    </p>
+    <h2>Key AI Use Cases in Project Management</h2>
+    <h3>1. Predictive Risk Analytics</h3>
+    <p>
+      AI models can analyze historical project data — schedule slippage, scope creep patterns, team velocity trends — to flag risks weeks before they become problems. Tools like Jira's AI assistant and Microsoft Project's Copilot integration are already doing this.
+    </p>
+    <h3>2. Intelligent Resource Allocation</h3>
+    <p>
+      AI can match tasks to team members based on skills, current workload, past performance, and project priority — reducing the manager's cognitive load and improving team throughput.
+    </p>
+    <h3>3. Automated Reporting &amp; Dashboards</h3>
+    <p>
+      Natural language processing (NLP) enables AI to generate sprint summaries, stakeholder updates, and status reports automatically from raw project data. This can save project managers 5–10 hours per week.
+    </p>
+    <h3>4. AI-Assisted Sprint Planning</h3>
+    <p>
+      AI tools can suggest sprint scope based on team capacity, historical velocity, and business priority — reducing the time spent in planning meetings and improving sprint predictability.
+    </p>
+    <h3>5. Meeting Intelligence</h3>
+    <p>
+      AI meeting assistants (e.g., Otter.ai, Fireflies) transcribe standup calls, extract action items, and update project tools automatically — ensuring nothing falls through the cracks.
+    </p>
+    <h2>Real-World Impact</h2>
+    <p>
+      In my own consulting work, AI-powered reporting automation has saved teams an average of <strong>8 hours per week</strong>. Predictive sprint planning reduced missed commitments by over 30% on one enterprise project. These aren't theoretical gains — they're measurable outcomes achievable with today's tooling.
+    </p>
+    <h2>Getting Started with AI in Your Projects</h2>
+    <ol>
+      <li>Start with AI-assisted reporting — connect your Jira or Asana to an AI reporting layer.</li>
+      <li>Explore Copilot features in Microsoft 365 Project or Jira's AI features.</li>
+      <li>Use AI meeting assistants in retrospectives and planning sessions.</li>
+      <li>Gradually introduce predictive analytics once you have 2–3 sprints of historical data.</li>
+    </ol>
+    <div class="callout">
+      <p>Interested in integrating AI into your project management workflow? <a href="mailto:dhaval2123mba@gmail.com" style="color:#0E2261;font-weight:700;">Contact Dhaval Trivedi</a> for a consultation on AI-driven project management tooling and strategy.</p>
+    </div>
+    <a href="../" class="back-btn">&#8592; Back to Dhaval Trivedi's Site</a>
+  </article>
 </body>
 </html>

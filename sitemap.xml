@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dhaval-info-1.github.io/Dhaval-Makwana/</loc>
-    <lastmod>2025-05-29</lastmod>
+    <loc>https://dhaval-info-1.github.io/</loc>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dhaval-info-1.github.io/Dhaval-Makwana/#about</loc>
-    <lastmod>2025-05-29</lastmod>
+    <loc>https://dhaval-info-1.github.io/#about</loc>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dhaval-info-1.github.io/Dhaval-Makwana/#blog</loc>
-    <lastmod>2025-05-29</lastmod>
+    <loc>https://dhaval-info-1.github.io/#services</loc>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dhaval-info-1.github.io/Dhaval-Makwana/blog/post1.html</loc>
-    <lastmod>2025-05-29</lastmod>
+    <loc>https://dhaval-info-1.github.io/#portfolio</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dhaval-info-1.github.io/#blog</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dhaval-info-1.github.io/#contact</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dhaval-info-1.github.io/blog/post1.html</loc>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dhaval-info-1.github.io/Dhaval-Makwana/blog/post2.html</loc>
-    <lastmod>2025-05-29</lastmod>
+    <loc>https://dhaval-info-1.github.io/blog/post2.html</loc>
+    <lastmod>2026-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
